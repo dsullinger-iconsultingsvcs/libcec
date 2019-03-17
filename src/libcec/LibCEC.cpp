@@ -555,9 +555,9 @@ uint8_t CLibCEC::AudioUnmute(void)
   return m_client ? m_client->AudioUnmute() : (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
 }
 
-uint8_t CLibCEC::AudioStatus(void)
+uint8_t CLibCEC::AudioStatus(bool forceUpdate)
 {
-  return m_client ? m_client->AudioStatus() : (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
+  return m_client ? m_client->AudioStatus(forceUpdate) : (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
 }
 
 int8_t CLibCEC::DetectAdapters(cec_adapter_descriptor *deviceList, uint8_t iBufSize, const char *strDevicePath /* = NULL */, bool bQuickScan /* = false */)

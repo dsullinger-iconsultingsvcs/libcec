@@ -816,11 +816,11 @@ uint8_t CCECClient::AudioUnmute(void)
   return iStatus;
 }
 
-uint8_t CCECClient::AudioStatus(void)
+uint8_t CCECClient::AudioStatus(bool forceUpdate)
 {
   CCECBusDevice *device = GetPrimaryDevice();
   CCECAudioSystem *audio = m_processor->GetAudioSystem();
-  return device && audio && audio->IsPresent() ? audio->GetAudioStatus(device->GetLogicalAddress()) : (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
+  return device && audio && audio->IsPresent() ? audio->GetAudioStatus(device->GetLogicalAddress(), forceUpdate) : (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
 }
 
 bool CCECClient::SendKeypress(const cec_logical_address iDestination, const cec_user_control_code key, bool bWait /* = true */)

@@ -428,7 +428,7 @@ namespace CEC
      * @brief Get the current audio status (if an AVR is connected)
      * @return The current audio status, or cec_audio_status if unknown.
      */
-    virtual uint8_t AudioStatus(void) = 0;
+    virtual uint8_t AudioStatus(bool forceUpdate = false) = 0;
 
     /*!
      * @brief Try to find all connected CEC adapters.

@@ -118,15 +118,13 @@ bool CCECAudioSystem::TransmitSystemAudioModeStatus(cec_logical_address dest, bo
 uint8_t CCECAudioSystem::VolumeUp(const cec_logical_address source, bool bSendRelease /* = true */)
 {
   TransmitVolumeUp(source, bSendRelease);
-  CLockObject lock(m_mutex);
-  return m_audioStatus;
+  return GetAudioStatus(source, true);
 }
 
 uint8_t CCECAudioSystem::VolumeDown(const cec_logical_address source, bool bSendRelease /* = true */)
 {
   TransmitVolumeDown(source, bSendRelease);
-  CLockObject lock(m_mutex);
-  return m_audioStatus;
+  return GetAudioStatus(source, true);
 }
 
 uint8_t CCECAudioSystem::MuteAudio(const cec_logical_address source)

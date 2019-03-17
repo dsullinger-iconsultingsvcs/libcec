@@ -501,11 +501,11 @@ uint8_t libcec_audio_unmute(libcec_connection_t connection)
       (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
 }
 
-uint8_t libcec_audio_get_status(libcec_connection_t connection)
+uint8_t libcec_audio_get_status(libcec_connection_t connection, bool forceUpdate)
 {
   ICECAdapter* adapter = static_cast<ICECAdapter*>(connection);
   return adapter ?
-      adapter->AudioStatus() :
+      adapter->AudioStatus(forceUpdate) :
       (uint8_t)CEC_AUDIO_VOLUME_STATUS_UNKNOWN;
 }
 

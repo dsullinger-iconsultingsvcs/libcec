@@ -148,7 +148,7 @@ namespace CEC
       uint8_t AudioToggleMute(void);
       uint8_t AudioMute(void);
       uint8_t AudioUnmute(void);
-      uint8_t AudioStatus(void);
+      uint8_t AudioStatus(bool forceUpdate);
 
       cec_command CommandFromString(const char* strCommand);
 
