@@ -3,9 +3,14 @@
 # About
 This library provides support for Pulse-Eight's USB-CEC adapter and other CEC capable hardware, like the Raspberry Pi.
 
-A list of frequently asked questions can be found on [libCEC's FAQ page] (http://libcec.pulse-eight.com/faq).
+A list of frequently asked questions can be found on [libCEC's FAQ page](http://libcec.pulse-eight.com/faq).
 
 .Net client applications, previously part of this repository, have been moved to [this repository](https://github.com/Pulse-Eight/cec-dotnet).
+
+## Changes in this Fork
+This fork contains the following changes:
+* Updated to retrieve the audio status from the device when changing the volume instead of using the original state information.  The intent is to provide the latest state information to the caller after the change has been made
+* Updated AudioStatus() to accept an optional parameter to force updating the audio status before returning the state.  This will allow AudioStatus() to not return stale state information
 
 # Supported platforms
 
